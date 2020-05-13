@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import './App.scss';
 
-const App = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
-}
+import Routes from './routes'
+
+const App = () => (
+  <Fragment>
+    <Routes />
+  </Fragment>
+)
 
 export default App;

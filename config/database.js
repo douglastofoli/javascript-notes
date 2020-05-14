@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+
+const { MONGO } = process.env;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/javascriptNote', {
+mongoose.connect(MONGO, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true

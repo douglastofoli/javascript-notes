@@ -70,7 +70,7 @@ function RegisterForm () {
                 <Control>
                   <Column.Group breakpoint="mobile">
                     <Column>
-                      <Link className="button is-white has-text-custom-purple" onClick={e => setRedirectToLogin(true)}>Login or</Link>
+                      <Link to="/login" className="button is-white has-text-custom-purple">Login or</Link>
                     </Column>
                     <Column>
                       <Button color="custom-purple" outlined>Register</Button>

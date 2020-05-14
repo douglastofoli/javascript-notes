@@ -7,7 +7,6 @@ import UsersService from '../../../services/users';
 function LoginForm () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [redirectToRegister, setRedirectToRegister] = useState(false);
   const [redirectToNotes, setRedirectToNotes] = useState(false);
   const [error, setError] = useState(false);
 
@@ -22,9 +21,7 @@ function LoginForm () {
     }
   }
 
-  if (redirectToRegister)
-    return <Redirect to={{ pathname: '/register' }} />
-  else if (redirectToNotes)
+  if (redirectToNotes)
     return <Redirect to={{ pathname: '/notes' }} />
 
   return (
@@ -60,7 +57,7 @@ function LoginForm () {
               <Control>
                 <Column.Group breakpoint="mobile">
                   <Column>
-                    <Link className="button is-white has-text-custom-purple" onClick={e => setRedirectToRegister(true)}>Register or</Link>
+                    <Link to="/register" className="button is-white has-text-custom-purple">Register or</Link>
                   </Column>
                   <Column>
                     <Button color="custom-purple" outlined>Login</Button>

@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Input, Column } from "rbx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-function Search(props) {
-  const [query, setQuery] = useState('')
+function Search (props) {
+  const [query, setQuery] = useState('');
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -14,16 +15,18 @@ function Search(props) {
 
   return (
     <Column.Group className="is-vcentered" breakpoint="mobile">
-      <Column size="9" offset={1}>
-        <Input type="text"
+      <Column size={9} offset={1}>
+        <Input 
+          type="text"
           name={query}
           value={query}
           placeholder="Search note..."
           onChange={(event) => setQuery(event.target.value)}
-          onKeyDown={handleKeyDown} />
+          onKeyDown={handleKeyDown} 
+        />
       </Column>
       <Column mobile={2} size={1}>
-        <a href="#" onClick={() => {
+        <Link to="/notes" onClick={() => {
           props.fetchNotes()
           setQuery('')
         }}>
@@ -32,7 +35,7 @@ function Search(props) {
             color="grey"
             className="is-pulled-left"
           />
-        </a>
+        </Link>
       </Column>
     </Column.Group>
   )

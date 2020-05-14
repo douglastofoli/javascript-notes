@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Navbar, Column, Button, Dropdown } from 'rbx';
+import { Navbar, Column, Button, Dropdown, Icon } from 'rbx';
 import { Redirect, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList } from '@fortawesome/free-solid-svg-icons';
+import { faList, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import UsersService from '../../services/users';
 import '../../styles/header.scss';
@@ -10,6 +10,8 @@ import logoImage from '../../assets/images/logo-white.png';
 
 function HeaderLogged (props) {
   const [redirectToHome, setRedirectToHome] = useState(false);
+
+  const user = localStorage.getItem('user');
 
   const logOut = async () => {
     await UsersService.logout();
@@ -57,7 +59,10 @@ function HeaderLogged (props) {
             <Dropdown>
               <Dropdown.Trigger>
                 <Button className="button" color="white" outlined>
-                  <span>Douglas ▼</span>
+                  <span>{JSON.parse(user)['name']}</span>
+                  <Icon size="small">
+                    <FontAwesomeIcon icon={faAngleDown} />
+                  </Icon>
                 </Button>
               </Dropdown.Trigger>
               <Dropdown.Menu>
@@ -67,7 +72,7 @@ function HeaderLogged (props) {
                   </Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item as="div">
-                    <Link onClick={e => logOut()}>LogOut</Link>
+                    <Link to="" onClick={e => logOut()}>LogOut</Link>
                   </Dropdown.Item>
                 </Dropdown.Content>
               </Dropdown.Menu>

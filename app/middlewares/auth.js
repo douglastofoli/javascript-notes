@@ -15,7 +15,6 @@ const withAuth = (req, res, next) => {
       if (err) {
         res.status(401).json({ error: 'Unauthorized: token invalid' });
       } else {
-        // req.email = decoded.email;
         User.findOne({ email: decoded.email })
         .then(user => {
           req.user = user;

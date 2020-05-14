@@ -13,7 +13,7 @@ const LoginScreen = () => (
     <Section size="medium" className="auth">
       <Container>
         <Column.Group centered>
-          <Column size={3}>
+          <Column size={4}>
             <Card>
               <Card.Content>
                 <Section>

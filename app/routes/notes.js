@@ -66,8 +66,9 @@ router.put('/:id', withAuth, async (req, res) => {
     let note = await Note.findById(id);
 
     if (isOwner(req.user, note)) {
-      let note = await Note.findOneAndUpdate(id, 
-        { $set: { title, body } },
+      note = await Note.findOneAndUpdate(
+        { _id: id },
+        { $set: { title: title, body: body } },
         { upsert: true, 'new': true }
       );
       res.status(200).json(note);

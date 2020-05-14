@@ -4,3 +4,13 @@
   background-color: $custom-purple;
   height: calc(100% - 70px);
 }
+
+.section.is-medium {
+  padding: 35px;
+}
+
+.column.is-5, .column.is-5-tablet {
+  flex: none;
+  width: 41,7%;
+  margin-top: 30px;
+}

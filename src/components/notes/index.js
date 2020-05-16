@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { push as Menu } from 'react-burger-menu';
-import { Column,  } from 'rbx';
+import { Column } from 'rbx';
 
 import List from './list';
 import Editor from './editor';
